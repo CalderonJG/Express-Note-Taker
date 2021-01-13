@@ -18,7 +18,7 @@ module.exports = function(app) {
         return res.json(getNotes);
     });
 
-    app.delete("/api/notes", function(req, res) {
+    app.delete("/api/notes/:id", function(req, res) {
         notes = fs.readFileSync(path.resolve("..db/db.json"), "utf8");
         notes = JSON.parse(notes);
         fs.writeFile(path.resolve("..db/db.json"), notes, function(err) {
